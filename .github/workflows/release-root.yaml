@@ -11,11 +11,14 @@ permissions:
 jobs:
   my_first_job:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: devtron-cli
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Run Release
-        uses: ./devtron-cli/.github/workflows/release
+#      - name: Run Release
+#        uses: ./devtron-cli/.github/workflows/release
 #        with:
 #          fetch-depth: 0
 #    uses: ./.github/actions/my-action
