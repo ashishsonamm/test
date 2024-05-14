@@ -1,0 +1,19 @@
+name: goreleaser
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Release
+        uses: ./devtron-cli/.github/workflows/release
+#        with:
+#          fetch-depth: 0
+#    uses: ./.github/actions/my-action
