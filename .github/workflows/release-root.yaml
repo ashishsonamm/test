@@ -12,6 +12,8 @@ jobs:
   my_first_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run Release
         uses: ./devtron-cli/.github/workflows/release
 #        with:
