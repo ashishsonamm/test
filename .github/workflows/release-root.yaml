@@ -9,16 +9,30 @@ permissions:
   contents: write
 
 jobs:
-  my_first_job:
+  goreleaser:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: devtron-cli
     steps:
-      - name: Checkout
+      - name: dir
+        run: pwd
+      -
+        name: Checkout
         uses: actions/checkout@v4
-#      - name: Run Release
-#        uses: ./devtron-cli/.github/workflows/release
-#        with:
-#          fetch-depth: 0
-#    uses: ./.github/actions/my-action
+        with:
+          fetch-depth: 0
+      -
+        name: Set up Go
+        uses: actions/setup-go@v4
+      -
+        name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          # either 'goreleaser' (default) or 'goreleaser-pro'
+          distribution: goreleaser
+          # 'latest', 'nightly', or a semver
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
