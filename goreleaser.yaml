@@ -8,13 +8,11 @@ before:
     - go generate ./...
 builds:
   - main: ./devtron-cli
-  - env:
-      - CGO_ENABLED=0
     goos:
       - linux
       - windows
       - darwin
-    binary: devtctl
+    binary: test
 sboms:
   - artifacts: archive
 
