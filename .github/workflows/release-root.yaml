@@ -28,7 +28,7 @@ jobs:
           distribution: goreleaser
           # 'latest', 'nightly', or a semver
           version: latest
-          command: cd ../../devtron-cli && goreleaser
+#          command: cd ../../devtron-cli && goreleaser
           args: release --config goreleaser.yaml --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
