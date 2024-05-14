@@ -14,7 +14,7 @@ builds:
       - linux
       - windows
       - darwin
-    binary: test
+    binary: test1
 sboms:
   - artifacts: archive
 
