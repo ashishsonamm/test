@@ -21,8 +21,12 @@ jobs:
           fetch-depth: 0
       - name: Set up Go
         uses: actions/setup-go@v4
+        run: |
+          cd devtron-cli
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5
+        run: |
+          cd devtron-cli
         with:
           # either 'goreleaser' (default) or 'goreleaser-pro'
           distribution: goreleaser
